@@ -19,7 +19,7 @@ body {
     opacity: 1;
     background-image: linear-gradient(#fff 1.5px, transparent 1.5px), linear-gradient(to right, #ffffff 1.5px, #ffeded 1.5px);
     background-size: 30px 30px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 h1 {
@@ -41,47 +41,57 @@ h3 {
 }
 
 img[alt="letrero"] {
-
     position: absolute;
     top: 0;
     left: 0;
     width: 150px;
+    animation: float 4.5s ease-in-out infinite;
 }
 
 img[alt="dialgo"] {
-
     position: absolute;
     top: 20px;
     right: -20px;
     width: 150px;
     transform: rotate(25deg);
+    animation: bob-rotate-25 3.8s ease-in-out infinite;
 }
 
 img[alt="Couple"] {
-
     position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px;
+    animation: float-center 5.5s ease-in-out infinite;
+}
+
+img[alt="Couple"]:hover {
+    transition: transform 0.25s ease;
+    transform-origin: center;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.12));
 }
 
 img[alt="sobre"] {
-
     position: absolute;
     top: 55%;
     right: 0px;
     width: 90px;
     transform: rotate(45deg);
+    animation: swing-45 4s ease-in-out infinite;
 }
 
 img[alt="flecha"] {
-
     position: absolute;
     top: 55%;
     left: 0px;
     width: 90px;
     transform: rotate(-60deg);
+    animation: float 3.4s ease-in-out infinite;
+}
+
+.background img {
+    z-index: 0;
 }
 
 button {
@@ -102,35 +112,101 @@ button:hover {
 button:nth-of-type(1) {
     bottom: 80px;
     left: 100px;
-    background-color: #ffe4e6;
-
-    color: #d63384;
+    background-color: #c0588c;
+    color: #fff;
+    z-index: 9999;
 }
 
 button:nth-of-type(2) {
     bottom: 80px;
     right: 100px;
-    background-color: #ffe4e6;
-    color: #d63384;
+    background-color: #ff0080;
+    color: #fff;
+}
+
+button:nth-of-type(1):hover {
+    background-color: #fff;
+    color: #c0588c;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #fff;
+    color: #ff0080;
 }
 
 #success-section {
-    display: none; 
-    text-align: center; 
+    display: none;
+    text-align: center;
     height: 100%;
     position: relative;
 }
 
 .success-title {
+    color: #9e4965;
     position: relative;
-    top: 10%; 
-    transform: translateY(-150%);
+    top: 10%;
 }
 
 .success-gif {
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 300px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bob-rotate-25 {
+    0% {
+        transform: rotate(25deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(25deg) translateY(-8px);
+    }
+
+    100% {
+        transform: rotate(25deg) translateY(0);
+    }
+}
+
+@keyframes float-center {
+    0% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+@keyframes swing-45 {
+    0% {
+        transform: rotate(45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(45deg) translateY(-6px) rotate(47deg);
+    }
+
+    100% {
+        transform: rotate(45deg) translateY(0);
+    }
 }
