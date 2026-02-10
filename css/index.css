@@ -25,6 +25,16 @@ body {
   z-index: 1;
   cursor: pointer;
 }
+/* Disable mobile tap highlight and text selection on interactive elements */
+.heart, .heart-clickbox, .valentines-day, .hearts-background, a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  touch-action: manipulation;
+}
 
 .hearts-background {
   position: fixed;
