@@ -4,8 +4,9 @@ body {
   justify-content: center;
   height: 100vh;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .heart-clickbox {
@@ -16,6 +17,7 @@ body {
   height: 300px;
   display: block;
   z-index: 1;
+  touch-action: manipulation;
 }
 
 .heart {
@@ -166,11 +168,13 @@ body {
   left: -170px;
 }
 
-.valentines-day:hover .heart {
+.valentines-day:hover .heart,
+.valentines-day.active .heart {
   transform: translateY(-50px) rotate(-45deg);
 }
 
-.valentines-day:hover .text {
+.valentines-day:hover .text,
+.valentines-day.active .text {
   transform: translateY(-50px);
 }
 
@@ -191,7 +195,6 @@ body {
   }
 }
 
-/* Overlay content (CSS-only "page" with transition) */
 .overlay {
   position: fixed;
   inset: 0;
@@ -236,4 +239,178 @@ body {
   text-decoration: none;
   font-size: 1.2rem;
   color: #333;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: 100vh;
+  }
+
+  .heart {
+    height: 120px;
+    width: 120px;
+    top: 30px;
+  }
+
+  .heart:before,
+  .heart:after {
+    height: 120px;
+    width: 120px;
+  }
+
+  .heart:before {
+    top: -67px;
+    left: 0;
+  }
+
+  .heart:after {
+    left: 67px;
+    top: 0;
+  }
+
+  .heart-clickbox {
+    top: -80px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .front {
+    width: 0;
+    height: 0;
+    border-right: 127px solid #ffaed0;
+    border-top: 75px solid transparent;
+    border-bottom: 75px solid transparent;
+    top: 30px;
+    left: 53px;
+  }
+
+  .front:before {
+    border-left: 127px solid #ffaed0;
+    border-top: 75px solid transparent;
+    border-bottom: 75px solid transparent;
+    top: -75px;
+    left: -113px;
+  }
+
+  .front:after {
+    border-bottom: 100px solid #ff84c0;
+    border-right: 120px solid transparent;
+    border-left: 120px solid transparent;
+    top: -24px;
+    left: -113px;
+  }
+
+  .envelope:before {
+    width: 170px;
+    height: 170px;
+    left: -25px;
+    top: -55px;
+  }
+
+  .envelope:after {
+    width: 240px;
+    height: 150px;
+    left: -60px;
+    top: 30px;
+  }
+
+  .hearts-background::before {
+    font-size: 20px;
+    line-height: 50px;
+    top: -15px;
+    left: 35px;
+  }
+
+  .valentines-day:hover .heart,
+  .valentines-day.active .heart {
+    transform: translateY(-30px) rotate(-45deg);
+  }
+
+  .overlay .panel {
+    padding: 1.5rem;
+    width: calc(100% - 2rem);
+  }
+
+  .overlay .close {
+    top: 15px;
+    right: 15px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heart {
+    height: 90px;
+    width: 90px;
+    top: 20px;
+  }
+
+  .heart:before,
+  .heart:after {
+    height: 90px;
+    width: 90px;
+  }
+
+  .heart:before {
+    top: -50px;
+  }
+
+  .heart:after {
+    left: 50px;
+  }
+
+  .heart-clickbox {
+    top: -60px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .front {
+    border-right: 95px solid #ffaed0;
+    border-top: 56px solid transparent;
+    border-bottom: 56px solid transparent;
+    top: 22px;
+    left: 40px;
+  }
+
+  .front:before {
+    border-left: 95px solid #ffaed0;
+    border-top: 56px solid transparent;
+    border-bottom: 56px solid transparent;
+    top: -56px;
+    left: -85px;
+  }
+
+  .front:after {
+    border-bottom: 75px solid #ff84c0;
+    border-right: 90px solid transparent;
+    border-left: 90px solid transparent;
+    top: -18px;
+    left: -85px;
+  }
+
+  .envelope:before {
+    width: 127px;
+    height: 127px;
+    left: -18px;
+    top: -41px;
+  }
+
+  .envelope:after {
+    width: 180px;
+    height: 112px;
+    left: -45px;
+    top: 22px;
+  }
+
+  .hearts-background::before {
+    font-size: 16px;
+    line-height: 40px;
+  }
+
+  .valentines-day:hover .heart,
+  .valentines-day.active .heart {
+    transform: translateY(-20px) rotate(-45deg);
+  }
 }
